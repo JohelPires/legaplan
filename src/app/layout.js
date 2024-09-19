@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
                <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                     <div className='flex flex-col sm:flex-row items-left sm:items-center justify-between py-3 mb-10 mx-5'>
                          <Logo />
-                         <h1 className='text-2xl font-bold'>Bem-vindo de volta, Marcus</h1>
+                         <h1 className='text-2xl font-bold text-center'>Bem-vindo de volta, Marcus</h1>
                          <div>
                               {new Intl.DateTimeFormat('pt-BR', {
                                    weekday: 'long',

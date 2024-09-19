@@ -51,7 +51,7 @@ export default function Home() {
                .filter((tarefa) => tarefa.done === done)
                .map((tarefa) => (
                     <div
-                         className='mx-auto max-w-md rounded-lg border-dashed border-2 border-zinc-200 p-4 my-4 hover:bg-zinc-100 hover:border-zinc-100 flex justify-between items-center'
+                         className='mx-auto max-w-md rounded-lg border-dashed border-2 border-zinc-200 p-4 my-4 hover:bg-[#F7F9FD] hover:border-[#F7F9FD] flex justify-between items-center'
                          key={tarefa.id}
                     >
                          <span
@@ -94,7 +94,7 @@ export default function Home() {
                     {renderTarefas(true)}
                </div>
                <button
-                    className='mx-auto block w-full max-w-md mt-5 rounded-lg border-0 font-medium bg-gradient-to-r from-[#0796D3] to-[#53C0F0] py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white'
+                    className='mx-auto h-[51px] block w-full max-w-md mt-5 rounded-lg border-0 font-medium bg-gradient-to-r from-[#0796D3] to-[#53C0F0] py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white'
                     type='button'
                     onClick={() => setVisibility(true)}
                >
@@ -138,12 +138,12 @@ function Modal({ visibility, setVisibility, setTarefas, saveTarefas, setError })
 
      return (
           <div
-               className={`fixed inset-0 z-10 ${visibility ? 'block' : 'hidden'}`}
+               className={`fixed bg-white bg-opacity-50 inset-0 z-10 ${visibility ? 'block' : 'hidden'}`}
                style={{
                     backdropFilter: visibility ? 'blur(3px)' : 'none',
                }}
           >
-               <div className='bg-white mt-36 shadow-2xl mx-auto max-w-md rounded-xl border-zinc-300 p-4'>
+               <div className='bg-white mt-52 shadow-2xl mx-auto max-w-md rounded-2xl border-zinc-300 p-9'>
                     <h2 className='text-left font-bold text-2xl my-4 text-zinc-700'>Nova tarefa</h2>
                     Título
                     <input
@@ -184,12 +184,12 @@ function ModalConfirmarDelete({ visibility, setVisibility, deleteTarefa, tarefaI
 
      return (
           <div
-               className={`fixed inset-0 z-10 ${visibility ? 'block' : 'hidden'}`}
+               className={`fixed bg-white bg-opacity-50 inset-0 z-10 ${visibility ? 'block' : 'hidden'}`}
                style={{
                     backdropFilter: visibility ? 'blur(3px)' : 'none',
                }}
           >
-               <div className='bg-white mt-36 shadow-2xl mx-auto max-w-md rounded-xl border-zinc-300 p-4'>
+               <div className='bg-white mt-52 shadow-2xl mx-auto max-w-md rounded-2xl border-zinc-300 p-9'>
                     <h2 className='text-left font-bold text-2xl my-4 text-zinc-700'>Deletar tarefa</h2>
                     <p>Tem certeza que deseja excluir esta tarefa?</p>
                     <div className='flex gap-3'>
