@@ -96,7 +96,7 @@ export default function Home() {
                     {renderTarefas(true)}
                </div>
                <button
-                    className='mx-auto h-[51px] block w-full max-w-md mt-5 rounded-lg border-0 font-medium bg-gradient-to-r from-[#0796D3] to-[#53C0F0] py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white'
+                    className='mx-auto h-12 block w-full max-w-md mt-5 rounded-lg border-0 font-medium bg-gradient-to-r from-[#0796D3] to-[#53C0F0] py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white'
                     type='button'
                     onClick={() => setVisibility(true)}
                >
