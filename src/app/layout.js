@@ -12,6 +12,12 @@ const geistMono = localFont({
      weight: '100 900',
 })
 
+const inter = localFont({
+     src: './fonts/InterTight-VariableFont_wght.ttf',
+     variable: '--font-inter-sans',
+     weight: '100 900',
+})
+
 export const metadata = {
      title: 'Gerenciador de Tarefas',
      description: 'Gerenciador de Tarefas',
@@ -20,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
      return (
           <html lang='en'>
-               <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+               <body className={`${inter.variable} antialiased`}>
                     <div className='flex flex-col sm:flex-row items-left sm:items-center justify-between py-3 mb-10 mx-5'>
                          <Logo />
                          <h1 className='text-2xl font-bold text-center'>Bem-vindo de volta, Marcus</h1>

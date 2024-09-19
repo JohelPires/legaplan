@@ -53,15 +53,15 @@ export default function Home() {
                .filter((tarefa) => tarefa.done === done)
                .map((tarefa) => (
                     <div
-                         className='mx-auto max-w-md rounded-lg border-dashed border-2 border-zinc-200 p-4 my-4 hover:bg-[#F7F9FD] hover:border-[#F7F9FD] flex justify-between items-center'
+                         className='mx-auto max-w-md rounded-lg border-dashed border-2 border-zinc-200 p-4 my-5 hover:bg-[#F7F9FD] hover:border-[#F7F9FD] flex justify-between items-center'
                          key={tarefa.id}
                     >
                          <span
                               onClick={() => toggleTarefa(tarefa.id)}
                               className={`cursor-pointer text-xl flex-grow ${done ? 'line-through text-zinc-500' : ''}`}
                          >
-                              <div className='flex items-center gap-2'>
-                                   <IconCheck checked={tarefa.done} /> {tarefa.nome}
+                              <div className='flex items-center gap-3'>
+                                   <IconCheck checked={tarefa.done} /> <div>{tarefa.nome}</div>
                               </div>
                          </span>
                          <button
@@ -84,11 +84,11 @@ export default function Home() {
                          className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative'
                          role='alert'
                     >
-                         <strong className='font-bold'>Error: </strong>
+                         <strong className='font-bold'>Erro: </strong>
                          <span className='block sm:inline'>{error}</span>
                     </div>
                )}
-               <div className='mx-auto max-w-md rounded-lg border-2 border-zinc-300 p-4'>
+               <div className='mx-auto max-w-lg rounded-lg border-2 border-zinc-100 p-9 shadow-2xl shadow-zinc-50'>
                     <h1 className='text-center text-xl my-4 text-zinc-500'>Suas tarefas de hoje</h1>
                     {renderTarefas(false)}
 
@@ -96,7 +96,7 @@ export default function Home() {
                     {renderTarefas(true)}
                </div>
                <button
-                    className='mx-auto h-12 block w-full max-w-md mt-5 rounded-lg border-0 font-medium bg-gradient-to-r from-[#0796D3] to-[#53C0F0] py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white'
+                    className='mx-auto h-12 block w-full max-w-lg mt-5 rounded-lg border-0 font-medium bg-gradient-to-r from-[#0796D3] to-[#53C0F0] py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white'
                     type='button'
                     onClick={() => setVisibility(true)}
                >
