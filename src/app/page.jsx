@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Modal, ModalConfirmarDelete } from './Modal'
 import { IconCheck, IconTrash } from './Icons'
+import './Home.scss'
 
 export default function Home() {
      const [tarefas, setTarefas] = useState([])
@@ -52,15 +53,12 @@ export default function Home() {
           return tarefas
                .filter((tarefa) => tarefa.done === done)
                .map((tarefa) => (
-                    <div
-                         className='mx-auto max-w-md rounded-lg border-dashed border-2 border-zinc-200 p-4 my-5 hover:bg-[#F7F9FD] hover:border-[#F7F9FD] flex justify-between items-center'
-                         key={tarefa.id}
-                    >
+                    <div className='tarefa' key={tarefa.id}>
                          <span
                               onClick={() => toggleTarefa(tarefa.id)}
-                              className={`cursor-pointer text-xl flex-grow ${done ? 'line-through text-zinc-500' : ''}`}
+                              className={`tarefa__text ${done ? 'tarefa__text--done' : ''}`}
                          >
-                              <div className='flex items-center gap-3'>
+                              <div className='tarefa__content'>
                                    <IconCheck checked={tarefa.done} /> <div>{tarefa.nome}</div>
                               </div>
                          </span>
@@ -69,7 +67,7 @@ export default function Home() {
                                    setDeletarTarefa(tarefa.id)
                                    setVisibilityDel(true)
                               }}
-                              className=''
+                              className='tarefa__delete'
                          >
                               <IconTrash />
                          </button>
@@ -78,28 +76,21 @@ export default function Home() {
      }
 
      return (
-          <main>
+          <main className='home'>
                {error && (
-                    <div
-                         className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative'
-                         role='alert'
-                    >
-                         <strong className='font-bold'>Erro: </strong>
-                         <span className='block sm:inline'>{error}</span>
+                    <div className='error-message' role='alert'>
+                         <strong className='error-message__title'>Erro: </strong>
+                         <span className='error-message__content'>{error}</span>
                     </div>
                )}
-               <div className='mx-auto max-w-lg rounded-lg border-2 border-zinc-100 p-9 shadow-2xl shadow-zinc-50'>
-                    <h1 className='text-center text-xl my-4 text-zinc-500'>Suas tarefas de hoje</h1>
+               <div className='task-container'>
+                    <h1 className='task-container__title'>Suas tarefas de hoje</h1>
                     {renderTarefas(false)}
 
-                    <h2 className='text-center text-xl my-4 text-zinc-500'>Tarefas finalizadas</h2>
+                    <h2 className='task-container__subtitle'>Tarefas finalizadas</h2>
                     {renderTarefas(true)}
                </div>
-               <button
-                    className='mx-auto h-12 block w-full max-w-lg mt-5 rounded-lg border-0 font-medium bg-gradient-to-r from-[#0796D3] to-[#53C0F0] py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white'
-                    type='button'
-                    onClick={() => setVisibility(true)}
-               >
+               <button className='add-task-button' type='button' onClick={() => setVisibility(true)}>
                     Adicionar nova tarefa
                </button>
 
